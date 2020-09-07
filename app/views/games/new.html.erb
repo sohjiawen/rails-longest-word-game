@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>New Game</h1>
+    <ul>
+    <% @letters.each do |letter|%>
+      <li><%= letter %></li>
+    <% end %>
+    </ul>
+  </div>
+  <form action="score" method="post">
+    <div>
+      <label for="answer">What is the longest word you can find?</label>
+    </div>
+    <input type="text" id="answer" name="word">
+    <input type="submit" class="btn" value="Play">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</body>
+</html>
